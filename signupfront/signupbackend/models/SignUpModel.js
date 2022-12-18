@@ -1,0 +1,31 @@
+const mongoose = require('mongoose')
+
+const signUpTemplate = new mongoose.Schema({
+    firstName:{
+        type:String,
+        required:true
+    },
+    lastName:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    user:{
+        type:String,
+        enum:['READER','AUTHOR','TRANSLATOR','EDITOR'],
+        required:true
+    },
+    date:{
+        type:Date,
+        default:Date.now
+    }
+})
+
+module.exports = mongoose.model('client', signUpTemplate)
