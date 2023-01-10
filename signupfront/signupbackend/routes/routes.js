@@ -27,7 +27,7 @@ router.post('/signup', async(req, res) =>{
         const response = await signUpTemplateCopy.create({firstName,lastName,email,password,date,user})
         res.status(200).json(response)
     } catch (error) {
-        response.status(500).json({error:error.message})
+        res.status(500).json({error:error.message})
     }
 })
 
@@ -37,7 +37,7 @@ router.put('/', async(req, res) =>{
         const response = await signUpTemplateCopy.updateOne({email},{firstName,lastName,email,password,date,user})
         res.status(200).json(response)
     } catch (error) {
-        response.status(500).json({error:error.message})
+        res.status(500).json({error:error.message})
     }
 })
 
@@ -47,7 +47,7 @@ router.delete('/:email', async(req, res) =>{
         const _ = await signUpTemplateCopy.findOneAndDelete({email})
         res.status(200).json(_)
     } catch (error) {
-        response.status(500).json({error:error.message})
+        res.status(500).json({error:error.message})
     }
 })
 
